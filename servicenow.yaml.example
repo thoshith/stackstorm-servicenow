@@ -2,3 +2,4 @@
 instance_name: "StackStorm"
 username: "st2"
 password: "Sup3rS3cr3t"
+use_ssl: false

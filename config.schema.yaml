@@ -13,6 +13,11 @@
     type: "string"
     secret: true
     required: true
+  use_ssl:
+    description: "Flag to enable or disable SSL"
+    type: "boolean"
+    secret: false
+    required: false
   custom_params:
     description: "ServiceNow options that will be passed to all requests"
     type: object

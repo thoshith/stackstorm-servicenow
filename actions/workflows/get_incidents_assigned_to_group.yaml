@@ -1,19 +1,19 @@
 ---
     chain:
         -
-            name: "getUser"
+            name: "getGroup"
             ref: "servicenow.get_non_structured"
             parameters:
-                table: "sys_user"
-                query: "user_name={{name}}"
+                table: "sys_user_group"
+                query: "assignment_group={{group}}"
             on-success: getIncidents
             publish:
-                user_id: "{{getUser.result[0].sys_id}}"
+                group_id: "{{getGroup.result[0].sys_id}}"
         -
             name: "getIncidents"
             ref: "servicenow.get_non_structured"
             parameters:
                 table: "incident"
-                query: "assigned_to={{user_id}}"
+                query: "assignment_group={{group_id}}"
             publish:
                 incidents: "{{getIncidents.result}}"
